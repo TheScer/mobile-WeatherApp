@@ -48,8 +48,8 @@ export const ForecastScreen = () => {
             time={item.dt_txt}
             description={item.weather[0].description}
             temperature={item.main.temp}
-            windspeed={item.wind.windspeed}
-            icon={iconUriBase + "02d" + endIconUri}
+            windspeed={item.wind.speed}
+            fullIconUri={iconUriBase + item.weather[0].icon + endIconUri}
           />
         )}
       />

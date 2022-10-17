@@ -10,7 +10,7 @@ export const ForecastItem = ({
 }) => {
   return (
     <View style={styles.container}>
-      <Image source={fullIconUri} style={styles.image} />
+      <Image source={{ uri: fullIconUri }} style={styles.image} />
       <View style={styles.otherContainer}>
         <Text style={styles.day}>{time}</Text>
         <Text style={styles.temp}>{description}</Text>
