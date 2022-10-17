@@ -5,7 +5,7 @@ import { WeatherInfo } from "./WeatherInfo";
 import { UpdateLocation } from "./UpdateLocation";
 import { CustomButton } from "./CustomButton";
 
-export const WeatherScreen = () => {
+export const WeatherScreen = ({ navigation }) => {
   const [location1, setLocation1] = useState();
   const [weatherData, setWeatherData] = useState({
     city: "Tampere",
@@ -47,6 +47,11 @@ export const WeatherScreen = () => {
 
   const liftLocationState = (location) => setLocation1(location);
 
+  const openForecastScreen = () => {
+    console.log("opening forecast");
+    navigation.navigate("Weather Forecast");
+  };
+
   return (
     <View style={styles.container}>
       <Header headerText={weatherData.city}></Header>
@@ -62,6 +67,10 @@ export const WeatherScreen = () => {
         liftLocation={liftLocationState}
       ></UpdateLocation>
       <CustomButton onPress={() => updateLocation(location1)}></CustomButton>
+      <Button
+        title="Open Forecast"
+        onPress={() => openForecastScreen()}
+      ></Button>
     </View>
   );
 };
