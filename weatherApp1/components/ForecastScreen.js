@@ -11,12 +11,15 @@ import {
 import { ForecastItem } from "./ForecastItem";
 import { Header } from "./Header";
 
-export const ForecastScreen = () => {
-  const [weatherForecast, setWeatherForecast] = useState({});
+export const ForecastScreen = ({ route }) => {
+  const [weatherForecast, setWeatherForecast] = useState({
+    city: { name: "fetching" },
+  });
 
   useEffect(() => {
     //put code here to do things after 1st render
-    fetchWeatherForecast("tampere");
+    fetchWeatherForecast(route.params.location2);
+    console.log(route.params.location2);
   }, []);
 
   //full api endpoint
@@ -25,9 +28,7 @@ export const ForecastScreen = () => {
   const urlBase = "https://api.openweathermap.org/data/2.5/forecast?q=";
   const apiKey = "&units=metric&appid=dc681e754ceeecf75b71bd540321860f";
 
-  // const img = { uri: "https://openweathermap.org/img/w/02d.png" };
   const iconUriBase = "https://openweathermap.org/img/w/";
-  // jsonWeatherObject.weather[0].icon +
   const endIconUri = ".png";
 
   const fetchWeatherForecast = async (location) => {
@@ -39,7 +40,7 @@ export const ForecastScreen = () => {
   };
 
   return (
-    <ScrollView horizontal={true} style={styles.scrollView}>
+    <ScrollView horizontal={false} style={styles.scrollView}>
       {/* <Header headerText={weatherForecast.city.name} /> */}
       <FlatList
         data={weatherForecast.list}
@@ -59,7 +60,7 @@ export const ForecastScreen = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: "green",
+    backgroundColor: "#416270",
     padding: 30,
     flex: 0.6,
   },

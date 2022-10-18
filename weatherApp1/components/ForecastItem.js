@@ -23,12 +23,12 @@ export const ForecastItem = ({
 
 const styles = StyleSheet.create({
   image: {
-    width: 150,
-    height: 150,
+    width: 100,
+    height: 100,
   },
   container: {
     flexDirection: "row",
-    backgroundColor: "grey",
+    backgroundColor: "#64ABE3",
     justifyContent: "center",
     borderRadius: 50,
     fontWeight: "200",
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   day: {
     fontSize: 20,
     color: "white",
-    backgroundColor: "orange",
+    backgroundColor: "#8aa4ab",
     padding: 10,
     textAlign: "center",
     borderRadius: 50,
@@ -53,6 +53,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   otherContainer: {
-    paddingRight: 40,
+    paddingRight: 20,
   },
 });

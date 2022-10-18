@@ -19,12 +19,6 @@ export const WeatherScreen = ({ navigation }) => {
   const apiKey = "&units=metric&appid=dc681e754ceeecf75b71bd540321860f";
 
   const fetchWeatherData = async (location) => {
-    //fetch the weather data here.
-    //okay, so what if I built the full uri for icon in the fetch?
-
-    //okayokayokay, SO string builder is WORKING NOW, BUT,
-    //it will use the OLD icon value, not the new one it pulls
-
     try {
       const response = await fetch(urlBase + location + apiKey);
       const jsonWeatherObject = await response.json();
@@ -49,7 +43,9 @@ export const WeatherScreen = ({ navigation }) => {
 
   const openForecastScreen = () => {
     console.log("opening forecast");
-    navigation.navigate("Weather Forecast");
+    navigation.navigate("Weather Forecast", {
+      location2: location1,
+    });
   };
 
   return (
