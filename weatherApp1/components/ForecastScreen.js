@@ -41,7 +41,7 @@ export const ForecastScreen = ({ route }) => {
 
   return (
     <ScrollView horizontal={false} style={styles.scrollView}>
-      {/* <Header headerText={weatherForecast.city.name} /> */}
+      <Header headerText={weatherForecast.city.name} />
       <FlatList
         data={weatherForecast.list}
         renderItem={({ item }) => (
